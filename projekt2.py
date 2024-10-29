@@ -18,7 +18,7 @@ generovane_c=random.sample(range(10),4)
 while generovane_c[0]==0:
     generovane_c=random.sample(range(10),4)
 generovane_cislo=int("".join(map(str, generovane_c)))
-pocet_pokusu=1
+pocet_pokusu=0
 
 #funkce pro kontrolu
 def kontrola(cisl_str):
@@ -86,7 +86,7 @@ def pocet_cow_bull(cisl_str, generovane_cislo):
 #samotný cyklus hry
 while True:
     print(f"{oddelovac}")
-    cisl_str = input(f"{'Enter a number:'if pocet_pokusu==1 else ''}")
+    cisl_str = input(f"{'Enter a number:'if pocet_pokusu==0 else ''}")
     if kontrola(cisl_str):
         if int(cisl_str) == generovane_cislo:
                 pocet_pokusu += 1
