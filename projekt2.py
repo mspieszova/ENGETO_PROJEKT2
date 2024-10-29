@@ -75,10 +75,10 @@ def pocet_cow_bull(cisl_str, generovane_cislo):
     >>> pocet_cow_bull("1243")
     1 bull, 2 cows
     """
-    bull = [cislice for cislice in cisl_str if int(cislice) in generovane_c]
-    cow = [int(cislice) for index,cislice in enumerate(cisl_str) if int(cislice) == generovane_c[index]]
-    vysledny_bull = len(bull)-len(cow)
-    zapis_vysledny_bull = print(f"{vysledny_bull} {'bull' if vysledny_bull == 1 else 'bulls'},{len(cow)} {'cow' if len(cow) == 1 else 'cows'}")
+    cow = [cislice for cislice in cisl_str if int(cislice) in generovane_c]
+    bull = [int(cislice) for index,cislice in enumerate(cisl_str) if int(cislice) == generovane_c[index]]
+    vysledny_cow = len(cow)-len(bull)
+    zapis_vysledny_cow = print(f"{vysledny_cow} {'cow' if vysledny_cow == 1 else 'cows'},{len(bull)} {'bull' if len(bull) == 1 else 'bulls'}")
     return zapis_vysledny_bull          
 
 
