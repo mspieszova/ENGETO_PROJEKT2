@@ -18,7 +18,7 @@ generovane_c=random.sample(range(10),4)
 while generovane_c[0]==0:
     generovane_c=random.sample(range(10),4)
 generovane_cislo=int("".join(map(str, generovane_c)))
-pocet_pokusu=0
+pocet_pokusu=1
 
 #funkce pro kontrolu
 def kontrola(cisl_str):
@@ -85,11 +85,11 @@ def pocet_cow_bull(cisl_str, generovane_cislo):
 
 #samotný cyklus hry
 while True:
-    pocet_pokusu += 1
     print(f"{oddelovac}")
     cisl_str = input(f"{'Enter a number:'if pocet_pokusu==1 else ''}")
     if kontrola(cisl_str):
         if int(cisl_str) == generovane_cislo:
+                pocet_pokusu += 1
                 cas_konce = time.time()
                 cas_prubehu_system = cas_konce-cas_zacatku
                 print(f"Correct, you've guessed the right number\nin {pocet_pokusu} guesses!")
@@ -98,7 +98,8 @@ while True:
                 print(f"Time to solve it: {cas_prubehu_system :.2f}")  
                 break
         else:
-            pocet_cow_bull(cisl_str,generovane_c)  
+            pocet_cow_bull(cisl_str,generovane_c)
+            pocet_pokusu += 1
 
 
 
