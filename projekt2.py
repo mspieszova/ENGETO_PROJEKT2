@@ -23,8 +23,23 @@ pocet_pokusu=0
 #funkce pro kontrolu
 def kontrola(cisl_str):
     """
+    Kontroluje, zda zadané číslo (jako string) nezačíná nulou,
+    je čtyřciferné a má unikátní číslice. Vrací hodnotu True nebo False.
     
-    
+    :param cisl_str: Číslo ve formátu string zadané uživatelem.
+    :type cisl_str: str
+    :return: Vrací True, pokud splňuje podmínky, jinak False.
+    :rtype: bool
+
+    :Example:
+    >>> kontrola("1243")
+    True
+    >>> kontrola("0123")
+    False
+    >>> kontrola("12345")
+    False
+    >>> kontrola("1223")
+    False
     """
     if not cisl_str.isdigit():
         print(f"Číslo není číslice")
@@ -41,12 +56,27 @@ def kontrola(cisl_str):
     return True
 
 
-#    funkce pro počítání a tisk bulls nad cows
-def pocet_cow_bull(cisl_str):         
+#funkce pro počítání a tisk bulls nad cows
+def pocet_cow_bull(cisl_str):
+    """
+    Počítá a tiskne počet "bulls" a "cows" na základě zadaného čísla a generovaného čísla.
+    
+    "Bull" je číslice, která se nachází na správné pozici v generovaném čísle,
+    zatímco "cow" je číslice, která se nachází v generovaném čísle, ale na špatné pozici.
+
+    :param cisl_str: Zadané číslo jako string, které se má porovnat s generovaným číslem.
+    :type cisl_str: str
+    :return: Vytiskne výsledek počtu bulls a cows. Vrací None.
+    
+    :Example:
+    >>> generovane_c = "1234"  # Například generované číslo
+    >>> pocet_cow_bull("1243")
+    1 bull, 2 cows
+    """         
     bull = [cislice for cislice in cisl_str if int(cislice) in generovane_c]
-    cow = [int(cislice) for index,cislice in enumerate(cisl_str) if int(cislice)==generovane_c[index]]
+    cow = [int(cislice) for index,cislice in enumerate(cisl_str) if int(cislice) == generovane_c[index]]
     vysledny_bull = len(bull)-len(cow)
-    zapis_vysledny_bull = print(f"{vysledny_bull} {'bull' if vysledny_bull==1 else 'bulls'},{len(cow)} {'cow' if len(cow)==1 else 'cows'}")
+    zapis_vysledny_bull = print(f"{vysledny_bull} {'bull' if vysledny_bull == 1 else 'bulls'},{len(cow)} {'cow' if len(cow) == 1 else 'cows'}")
     return zapis_vysledny_bull            
 
 
