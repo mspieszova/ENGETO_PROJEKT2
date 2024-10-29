@@ -84,7 +84,7 @@ def pocet_cow_bull(cisl_str):
 #samotný cyklus hry
 while True:
     pocet_pokusu += 1
-    cisl_str = input(f"{oddelovac}\n")
+    cisl_str = input(f"{'Enter a number:'if pocet_pokusu==1 else ''}")
     if kontrola(cisl_str):
         if int(cisl_str) == generovane_cislo:
                 cas_konce = time.time()
