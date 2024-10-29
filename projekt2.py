@@ -57,7 +57,7 @@ def kontrola(cisl_str):
 
 
 #funkce pro počítání a tisk bulls nad cows
-def pocet_cow_bull(cisl_str):
+def pocet_cow_bull(cisl_str, generovane_cislo):
     """
     Počítá a tiskne počet "bulls" a "cows" na základě zadaného čísla a generovaného čísla.
     
@@ -65,25 +65,28 @@ def pocet_cow_bull(cisl_str):
     zatímco "cow" je číslice, která se nachází v generovaném čísle, ale na špatné pozici.
 
     :param cisl_str: Zadané číslo jako string, které se má porovnat s generovaným číslem.
+    :param generovaneho_cisla: Číslo ke kterému se budou počítat bull a cow
     :type cisl_str: str
+    :type generovane_cislo:str
     :return: Vytiskne výsledek počtu bulls a cows. Vrací None.
     
     :Example:
-    >>> generovane_c = "1234"  # Například generované číslo
+    >>> generovane_c = "1234"  
     >>> pocet_cow_bull("1243")
     1 bull, 2 cows
-    """         
+    """
     bull = [cislice for cislice in cisl_str if int(cislice) in generovane_c]
     cow = [int(cislice) for index,cislice in enumerate(cisl_str) if int(cislice) == generovane_c[index]]
     vysledny_bull = len(bull)-len(cow)
     zapis_vysledny_bull = print(f"{vysledny_bull} {'bull' if vysledny_bull == 1 else 'bulls'},{len(cow)} {'cow' if len(cow) == 1 else 'cows'}")
-    return zapis_vysledny_bull            
+    return zapis_vysledny_bull          
 
 
 
 #samotný cyklus hry
 while True:
     pocet_pokusu += 1
+    print(f"{oddelovac}")
     cisl_str = input(f"{'Enter a number:'if pocet_pokusu==1 else ''}")
     if kontrola(cisl_str):
         if int(cisl_str) == generovane_cislo:
@@ -95,9 +98,7 @@ while True:
                 print(f"Time to solve it: {cas_prubehu_system :.2f}")  
                 break
         else:
-            pocet_cow_bull(cisl_str)
-
-    
+            pocet_cow_bull(cisl_str,generovane_c)  
 
 
 
